@@ -21,7 +21,7 @@ module "eks" {
     general = {
       desired_size = 1
       min_size     = 1
-      max_size     = 3
+      max_size     = 2
 
       labels = {
         role = "${var.stackName}-node-labels"
@@ -33,7 +33,7 @@ module "eks" {
   }
 
   tags = {
-    service     = "sase-infra-data"
+    service     = "sase-infra-eks"
     environment = "${var.stackName}"
   }
 }

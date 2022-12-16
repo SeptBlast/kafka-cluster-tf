@@ -5,9 +5,9 @@ module "vpc" {
   name = "${var.stackName}-kafka-vpc"
   cidr = "10.2.0.0/16"
 
-  azs             = ["us-east-1a", "us-east-1b", "us-east-1c"]
-  private_subnets = ["10.2.0.0/19", "10.2.32.0/19", "10.2.64.0/19"]
-  public_subnets  = ["10.2.96.0/19", "10.2.128.0/19", "10.3.128.0/19"]
+  azs             = ["us-east-1a", "us-east-1b"]
+  private_subnets = ["10.2.0.0/19", "10.2.32.0/19"]
+  public_subnets  = ["10.2.64.0/19", "10.2.96.0/19"]
 
   enable_nat_gateway     = true
   single_nat_gateway     = true
@@ -17,7 +17,7 @@ module "vpc" {
   enable_dns_support   = true
 
   tags = {
-    service     = "sase-infra-data"
+    service     = "sase-infra"
     environment = "${var.stackName}"
   }
 }
